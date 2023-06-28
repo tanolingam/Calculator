@@ -1,18 +1,19 @@
-function updateClock() {
-    const now = new Date();
-    const hours = now.getHours();
-    const minutes = now.getMinutes();
-    const seconds = now.getSeconds();
-    const hoursString = hours < 10 ? '0' + hours : hours;
-    const minutesString = minutes < 10 ? '0' + minutes : minutes;
-    const secondsString = seconds < 10 ? '0' + seconds : seconds;
-    const hoursElem = document.getElementById('hours');
-    const minutesElem = document.getElementById('minutes');
-    const secondsElem = document.getElementById('seconds');
-    hoursElem.textContent = hoursString;
-    minutesElem.textContent = minutesString;
-    secondsElem.textContent = secondsString;
+function appendToDisplay(value) {
+    document.getElementById("display").value += value;
   }
   
-  setInterval(updateClock, 1000);
+  function clearDisplay() {
+    document.getElementById("display").value = "";
+  }
+  
+  function deleteLastCharacter() {
+    var display = document.getElementById("display").value;
+    document.getElementById("display").value = display.slice(0, -1);
+  }
+  
+  function calculate() {
+    var display = document.getElementById("display").value;
+    var result = eval(display);
+    document.getElementById("display").value = result;
+  }
   
